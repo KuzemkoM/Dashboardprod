@@ -1,0 +1,310 @@
+@import "../libs/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import "variables";
+@import "mixin";
+
+*, *:after, *:before{
+	@include box-sizing;
+}
+
+body{
+	font-family: $font;
+	font-size: $main-size;
+	color: $main-color;
+	background-color: $color-bg;
+	position: relative;
+}
+
+.container{
+	width: $container-width;
+}
+
+.main{
+	margin: 0;
+	padding: 0;
+
+	.col-md-2{
+		padding-right: 0;
+	}
+
+	.col-md-10{
+		padding-left: 0;
+	}
+}
+
+.logo{
+	background: #43C48D;
+	padding: 1.3rem 2.8rem;
+}
+
+.sidebar{
+	position: relative;
+	min-height: 100vh;
+	background: #3FC479;
+	.bottom-menu{
+		position: absolute;
+		bottom: 0;
+		border-top: 1px solid rgba(0, 0, 0, 0.07);
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+		ul{
+			padding-left: 2rem;
+			li{
+				display: inline-block;
+				margin-right: 1.2rem;
+				a{
+					text-decoration: none;
+					color: rgba(0, 0, 0, 0.3);
+					font-weight: bold;
+
+				}
+			}
+		}
+	}
+}
+.bottom-menu li:hover{
+	@include transition(all, 0.5s, ease);
+	border-bottom: 3px solid rgba(0, 0, 0, 0.07);
+}
+
+.bottom-menu li:active{
+	@include transition(all, 0.5s, ease);
+	border-bottom: 3px solid #fff;
+} /* Bottom menu */
+
+.profile{
+	padding-top: 4rem;
+	padding-left: 4rem;
+
+	.avatar{
+		padding-bottom: 3rem;
+	}
+	
+	.profile-info{
+		display: inline-block;
+	}
+
+	.profile-name{
+		display: inline-block;
+		margin-bottom: 0;
+	}
+
+	.profile-follow{
+		margin-top: 0;
+		font-size: 12px;
+		color: rgba(0, 0, 0, 0.3);
+		font-weight: bold;
+	}
+}
+
+.menu-list{
+	padding-right: 6rem;
+	li{
+		outline: none;
+		list-style-type: none;
+		margin-bottom: 10px;
+		padding: 10px 0;
+
+		img{
+			padding-right: 10px; 
+		}
+
+		a{
+			color: $main-color;
+			text-decoration: none;
+		}
+	}
+}
+
+.menu-list li:hover{
+	@include transition(all, 0.5s, ease);
+	background: #43C48D;
+	border: 1px dashed #50BD81;
+	border-radius: 5px;
+}
+
+.menu-list a:active{
+	@include transition(all, 0.5s, ease);
+	color: rgba(0, 0, 0, 0.3);
+} /* Sidebar */
+
+.search{
+	position: relative;
+
+	input{
+		width: 100%;
+		height: 5rem;
+		border: none;
+		outline: none;
+		color: #1CAF5E;
+	}
+	
+	.bell{
+		@include btn;
+		position: absolute;
+		right: 5rem;
+		top: 0.7rem;
+	}
+
+	.submit-btn{
+		@include btn;
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+	}
+} 
+.bell:hover,
+.add-btn:hover,
+.submit-btn:hover{
+	@include btn-hover(#333, #fff, rgba(67, 196, 141, 0.2));
+	border-radius: 5px;
+	@include transition(all, 0.5s, ease);
+}/* Search form */
+
+.dashboard{
+	padding: 5rem 8rem;
+	background: #EFF7ED;
+}
+
+.dashboard-head{
+	color: #1CAF5E;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.add-btn{
+	@include btn;
+	color: #1CAF5E;
+	border: 1px solid #1CAF5E;
+	border-radius: 4px;
+	padding: 11px 16px;
+}
+
+.date{
+	padding-left: 1.6rem;
+
+	li{
+		text-decoration: none;
+		display: inline-block;
+		margin-right: 30px;
+
+		a{
+			color: #333;
+			text-decoration: none;
+			font-size: 16px;
+		}
+	}
+}
+
+.date li:hover{
+	@include transition(all, 0.5s, ease);
+	border-bottom: 3px solid #B8E986;
+}
+
+.date a:active{
+	@include transition(all, 0.5s, ease);
+	border-bottom: 3px solid #007EB6;
+} /* Dashboard header */
+
+.social-box{
+	padding: 1.5rem;
+	border-radius: 9px;
+
+	a{
+		color: #fff;
+	}
+
+	.f-number{
+		font-size: 48px;
+		font-weight: bold;
+		padding-top: 3rem;
+		margin: 0;
+	}
+
+	.f-text{
+		text-transform: uppercase;
+		font-size: 12px;
+		letter-spacing: 2px;
+		margin: 0;
+		padding-bottom: 2rem;
+	}
+
+	.likes{
+		font-size: 24px;
+	}
+}
+
+.social-box a:hover{
+	@include transition(all, 0.5s, ease);
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.social-box a:active{
+	@include transition(all, 0.5s, ease);
+	padding-left: 10px;
+}
+
+.user{
+	position: relative;
+	display: inline-block;
+	margin-top: 1rem;
+	color: #333;
+	p{
+		a{
+			color: #333;	
+		}
+	}
+
+	.network{
+		position: absolute;
+		top: 0;
+		left: 5rem;
+		font-size: 13px;
+		opacity: 0.5;
+	}
+
+	.username{
+		position: absolute;
+		top: 2rem;
+		left: 5rem;
+		font-size: 13px;
+	}
+}
+
+.fb{
+	background: #35518F;
+}
+
+.twit{
+	background: linear-gradient(180deg, #059FF5 0%, #059FC3 100%), #059FF5;
+}
+
+.insta{
+	background: linear-gradient(45deg, #FF8C00 0%, #C71585 100%), #FF8C00;
+}
+
+.in{
+    background: linear-gradient(180deg, #007EBB 0%, #007E9D 98.51%), #007EBB;
+}
+
+.youtube{
+    background: linear-gradient(180deg, #CE1312 0%, #B01312 100%), #CE1312;
+}
+
+.snap{
+    background: linear-gradient(180deg, #FFFE00 0%, #F3F200 96.43%), #FFFE00;
+    padding-bottom: 6rem;
+}
+
+.google{
+    background: linear-gradient(180deg, #F93F2D 0%, #C73F2D 100%), #F93F2D;
+}
+
+.vine{
+    background: linear-gradient(180deg, #00B687 0%, #008E87 100%), #00B687;
+    padding-bottom: 6rem;
+}
+
+.margin{
+	margin-top: 5rem;
+}
